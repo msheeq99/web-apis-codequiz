@@ -20,7 +20,8 @@ body {
     background: var(--purple);
 }
 
-.start-btn {
+.start-btn,
+.info-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -38,6 +39,45 @@ body {
     border-radius: 5px;
     background: var(--white);
     cursor: pointer;
-    
-
 }
+
+.info-box {
+    width: 540px;
+    background: var(--white);
+    border-radius: 5px;
+}
+
+.info-box .info-title {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid lightslategrey;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.info-box .info-list {
+    padding: 15px 35px;
+}
+
+.info-box .info-list .info {
+    margin: 5px 0px;
+    font-size: 17px;
+}
+
+.info-box .info-list .info span {
+    font-weight: 600;
+    color: var(--purple);
+}
+
+.info-box .buttons {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 35px;
+    border-top: 1px solid lightslategrey;
+}
+
