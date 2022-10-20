@@ -25,7 +25,8 @@ body {
 
 .start-btn,
 .info-box,
-.quiz-box {
+.quiz-box,
+.result-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -234,4 +235,38 @@ button.hover {
 button:focus {
     outline: none;
     background-color: var(--darkGreen);
+}
+
+.result-box {
+    background: var(--white);
+    width: 450px;
+    padding: 25px 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.result-box .icon {
+    font-size: 100px;
+    color: var(--darkGreen);
+    margin-bottom: 10px;
+}
+
+.result-box .complete-text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.result-box .score-text span {
+    display: flex;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.score-text span p {
+
 }

@@ -38,8 +38,8 @@ const quizData = [
 
     {
         question: "Where is the correct place to insert a JavaScript?",
-        a: "Both the <head> section and the <body> section are correct",
-        b: "the <head> section",
+        a: "the <head> section",
+        b: "Both the <head> section and the <body> section are correct",
         c: "the <body> section",
         d: "the <footer> section",
         correct: "a",
@@ -66,10 +66,10 @@ const quizData = [
     {
         question: "How do you create a function in JavaScript?",
         a: "function:myFunction()",
-        b: "function = myFunction()",
-        c: "function myFunction()",
+        b: "function myFunction()",
+        c: "function = myFunction()",
         d: "function: Function()",
-        correct: "c",
+        correct: "b",
     },
 
     {
@@ -83,20 +83,20 @@ const quizData = [
 
     {
         question: "How to write an IF statement in JavaScript?",
-        a: "if(i == 5)",
+        a: "if i = 5",
         b: "if i == 5 then",
         c: "if i = 5 then",
-        d: "if i = 5",
-        correct: "a",
+        d: "if(i == 5)",
+        correct: "d",
     },
 
     {
         question: "How does a WHILE loop start?",
-        a: "while (i <= 10)",
-        b: "while (i <= 10;i++)",
+        a: "while (i <= 10;i++)",
+        b: "while (i <= 10)",
         c: "while ic= 1 to 10",
         d: "while (i <== 10,i+++)",
-        correct: "a",
+        correct: "b",
     },
 
     {
@@ -169,7 +169,7 @@ submitBtn.addEventListener('click', () => {
             loadQuiz()
         } 
         else {
-         
+            quiz.innerHTML = score, quizData.length;
         
         }
 
