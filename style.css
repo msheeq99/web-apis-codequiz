@@ -2,6 +2,7 @@
 :root {
     --purple: rgb(133, 8, 133);
     --white: #fff;
+    --lightBlue: #cce5ff;
 }
 
 /* importing google fonts */
@@ -21,7 +22,8 @@ body {
 }
 
 .start-btn,
-.info-box {
+.info-box,
+.quiz-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -42,6 +44,7 @@ body {
 }
 
 .info-box {
+    display: none;
     width: 540px;
     background: var(--white);
     border-radius: 5px;
@@ -81,3 +84,65 @@ body {
     border-top: 1px solid lightslategrey;
 }
 
+
+.info-box .buttons button {
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid (--purple);
+    border-radius: 5px;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.buttons button.restart {
+    color: var(--white);
+    background: var(--purple);
+}
+
+.buttons button.quit {
+    color: var(--purple);
+} 
+
+.quiz-box {
+    width: 550px;
+    background: var(--white);
+    border-radius: 5px;
+} 
+
+.quiz-box header {
+    height: 70px;
+    padding: 0 30px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 3px 5px 1px;
+}
+
+.quiz-box header .title {
+    font-size: 20px;
+    font-weight: 600;
+
+}
+.quiz-box header .timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 45px;
+    background: var(--lightBlue);
+    border: 1px solid #b8daff;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+
+.quiz-box header .timer .timer-text {
+    font-weight: 400;
+    font-size: 17px;
+    user-select: none;
+}
