@@ -1,16 +1,12 @@
-// if start quiz button clicked 
-start_bnt.onclick = ()=> {
-    info-box.classList.add("activeInfo"); //show the info box
-}
+const startQuiz = document.querySelector("#startBtn");
+const infoBox = document.querySelector('.info-box');
 
-// if exit button clicked 
-exit_bnt.onclick = ()=> {
-    info-box.classList.add("activeInfo"); //hide the info box
-}
+startQuiz.addEventListener('click', () =>  {
+    startQuiz.style.display = "none";
+    infoBox.style.display = "block";
+})
 
-// if continue button clicked 
-continue_bnt.onclick = ()=> {
-    info-box.classList.add("activeInfo"); //show the info box
-    quiz-box.classList.add("activeInfo"); //show the info box
-}
 
+function setNextQuestion() {
+
+}
