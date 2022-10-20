@@ -167,8 +167,11 @@ submitBtn.addEventListener('click', () => {
         
         if(currentQuiz < quizData.length) {
             loadQuiz()
-        } else {
-            
+        } 
+        else {
+         
+        
         }
+
     }
-})
+});
