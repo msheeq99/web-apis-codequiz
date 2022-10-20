@@ -127,3 +127,48 @@ const cText = document.getElementById('c-text');
 const dText = document.getElementById('d-text');
 const submitBtn = document.getElementById('submit');
 
+let currentQuiz = 0
+let score = 0
+
+loadQuiz()
+
+  function loadQuiz() {
+    deselectAnswers()
+
+    const currentQuizData = quizData[currentQuiz]
+
+    questionEl.innerText = currentQuizData.question
+    aText.innerText= currentQuizData.a
+    bText.innerText= currentQuizData.b
+    cText.innerText= currentQuizData.c
+    dText.innerText= currentQuizData.d
+}
+
+function deselectAnswers(){
+    answerEls.forEach(answerEls => answerEls.checked = false)
+}
+
+function getSelected() {
+    let answer
+    answerEls.forEach(answerEls => {
+        answer = answerEls.id
+    })
+    return answer
+}
+
+submitBtn.addEventListener('click', () => {
+    const answer = getSelected()
+    if(answer) {
+        if(answer === quizData[currentQuiz].correct) {
+            score++
+        }
+
+        currentQuiz++ 
+        
+        if(currentQuiz < quizData.length) {
+            loadQuiz()
+        } else {
+            
+        }
+    }
+})
