@@ -3,8 +3,11 @@ const startQuiz = document.querySelector("#startBtn");
 const infoBox = document.querySelector(".info-box");
 const exitBtn = document.querySelector("#quit");
 const continueBtn = document.querySelector("#restart");
+const resultsBox = document.querySelector("#results-box")
 const quizBox = document.querySelector("#quiz-box");
+const replayBtn = document.querySelector("#replay");
 
+const quitBtn = document.querySelector("#exit-btn");
 //start button clicked
 startQuiz.addEventListener('click', () =>  {
     startQuiz.style.display = "none";
@@ -22,12 +25,15 @@ continueBtn.addEventListener('click', () => {
     infoBox.style.display = "none";
     quizBox.style.display = "block";
     
-});
- 
+})
+
+
    
 //Quiz data
 const quizData = [
     {
+        
+        numb: 1,
         question: "inside which HTML element do we put the JavaScript?",
         a: "<js>",
         b: "<scripting>",
@@ -37,6 +43,7 @@ const quizData = [
     },
 
     {
+        numb: 2,
         question: "Where is the correct place to insert a JavaScript?",
         a: "the <head> section",
         b: "Both the <head> section and the <body> section are correct",
@@ -46,6 +53,7 @@ const quizData = [
     },
 
     {
+        numb: 3,
         question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
         a: "<script name= 'xxx.js'>",
         b: "<script href= 'xxx.js'>",
@@ -55,6 +63,7 @@ const quizData = [
     },
 
     {
+        numb: 4,
         question: "How do you write 'Hello World' in an alert box?",
         a: "alert('Hello World');",
         b: "alertBox('Hello World');",
@@ -64,6 +73,7 @@ const quizData = [
     },
 
     {
+        numb: 5,
         question: "How do you create a function in JavaScript?",
         a: "function:myFunction()",
         b: "function myFunction()",
@@ -73,6 +83,7 @@ const quizData = [
     },
 
     {
+        numb: 6,
         question: "How do you call a function named 'myFunction'?",
         a: "myFunction()",
         b: "call myFunction()",
@@ -82,6 +93,7 @@ const quizData = [
     },
 
     {
+        numb: 7,
         question: "How to write an IF statement in JavaScript?",
         a: "if i = 5",
         b: "if i == 5 then",
@@ -91,6 +103,7 @@ const quizData = [
     },
 
     {
+        numb: 8,
         question: "How does a WHILE loop start?",
         a: "while (i <= 10;i++)",
         b: "while (i <= 10)",
@@ -100,6 +113,7 @@ const quizData = [
     },
 
     {
+        numb: 9,
         question: "How can you add a comment in a JavaScript?",
         a: "///This is a comment",
         b: "<!--This is a comment -->",
@@ -109,6 +123,7 @@ const quizData = [
     },
 
     {
+        numb: 10,
         question: "What is the correct way to write a JavaScript array?",
         a: "var color = ['red', 'green', 'blue']",
         b: "var color = 1=('red'), 2=('green'), 3=('blue')",
@@ -126,10 +141,11 @@ const bText = document.getElementById('b-text');
 const cText = document.getElementById('c-text');
 const dText = document.getElementById('d-text');
 const submitBtn = document.getElementById('submit');
+const nextBtn = document.querySelector("#next");
+
 
 let currentQuiz = 0
-let score = 0
-
+let score = ""
 loadQuiz()
 
   function loadQuiz() {
@@ -151,27 +167,24 @@ function deselectAnswers(){
 function getSelected() {
     let answer
     answerEls.forEach(answerEls => {
-        answer = answerEls.id
+        if(answerEls.checked){
+          answer = answerEls.id  
+        }
+        
     })
     return answer
 }
 
 submitBtn.addEventListener('click', () => {
+   
     const answer = getSelected()
     if(answer) {
-        if(answer === quizData[currentQuiz].correct) {
-            score++
-        }
-
-        currentQuiz++ 
-        
-        if(currentQuiz < quizData.length) {
+        if(answer === quizData.length) {
             loadQuiz()
-        } 
-        else {
-            quiz.innerHTML = score, quizData.length;
-        
+        } else{
+            quiz.innerHTML = `Hello  Your result is ${score}/${quizData.length} " out of 10.`
         }
-
     }
+
+
 });
