@@ -107,7 +107,7 @@ let questions = [
         answer:  "//This is a comment",
         options: [
         "///This is a comment",
-         "<!--This is a comment -->",
+         "!--This is a comment --!",
          "//This is a comment",
          "<-- This is a comment -->",
         ]

@@ -283,6 +283,7 @@ footer .total-que span p:first-child {
 }
 
 footer #next-btn {
+    display: none;
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -295,8 +296,6 @@ footer #next-btn {
     border: 1px solid --purple;
 
 }
-
-
 
 
 
@@ -321,26 +320,26 @@ footer #next-btn {
 .result-box .complete-text {
     font-size: 20px;
     font-weight: 500;
+    text-align: center;
 }
 
 .result-box .score-text span {
-    display: flex;
+    display: block;
     margin: 10px 0;
     font-size: 18px;
     font-weight: 500;
+    text-align: center;
 }
 
 .score-text span p {
    font-weight: 500;
    padding: 0 4px;
+   text-align: center;
 }
 
-.result-box .buttons {
-    display: flex;
-    margin: 20px 0;
-}
 
-.result-box .buttons button {
+
+.result-box .buttons-5 button {
     margin: 0 10px;
     height: 40px;
     padding: 0 20px;
@@ -349,7 +348,8 @@ footer #next-btn {
     font-size: 18px;
     font-weight: 500;
     border-radius: 5px;
-    border: 1px solid --purple;
+    border: 1px solid white;
+    background: var(--purple);
     cursor: pointer;
     transition: all 0.3s ease;
 
