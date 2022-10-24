@@ -18,3 +18,5 @@ For this project I had to make a code quiz by using all the skills i have learne
 
 ![scrnli_24_10_2022_23-30-24](https://user-images.githubusercontent.com/113865888/197642382-d0e79bf5-9164-4129-859b-386f92388120.png)
 
+deployed link : https://msheeq99.github.io/web-apis-codequiz/
+
