@@ -24,167 +24,65 @@ exitBtn.addEventListener('click', () => {
 continueBtn.addEventListener('click', () => {
     infoBox.style.display = "none";
     quizBox.style.display = "block";
+    showQuestions(0);
+    queCounter(1);
     
 })
 
+let que_count = 0;
+let que_numb = 1;
 
-   
-//Quiz data
-const quizData = [
-    {
-        
-        numb: 1,
-        question: "inside which HTML element do we put the JavaScript?",
-        a: "<js>",
-        b: "<scripting>",
-        c: "<javascript>",
-        d: "<script>",
-        correct: "d",
-    },
+const next_btn = document.querySelector("#next-btn");
 
-    {
-        numb: 2,
-        question: "Where is the correct place to insert a JavaScript?",
-        a: "the <head> section",
-        b: "Both the <head> section and the <body> section are correct",
-        c: "the <body> section",
-        d: "the <footer> section",
-        correct: "a",
-    },
-
-    {
-        numb: 3,
-        question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
-        a: "<script name= 'xxx.js'>",
-        b: "<script href= 'xxx.js'>",
-        c: "<script scr= 'xxx.js'>",
-        d: "<script = 'xxx.js'>",
-        correct: "c",
-    },
-
-    {
-        numb: 4,
-        question: "How do you write 'Hello World' in an alert box?",
-        a: "alert('Hello World');",
-        b: "alertBox('Hello World');",
-        c: "msgBox('Hello World');",
-        d: "msg('Hello World');",
-        correct: "a",
-    },
-
-    {
-        numb: 5,
-        question: "How do you create a function in JavaScript?",
-        a: "function:myFunction()",
-        b: "function myFunction()",
-        c: "function = myFunction()",
-        d: "function: Function()",
-        correct: "b",
-    },
-
-    {
-        numb: 6,
-        question: "How do you call a function named 'myFunction'?",
-        a: "myFunction()",
-        b: "call myFunction()",
-        c: "call function myFunction",
-        d: "call function()",
-        correct: "a",
-    },
-
-    {
-        numb: 7,
-        question: "How to write an IF statement in JavaScript?",
-        a: "if i = 5",
-        b: "if i == 5 then",
-        c: "if i = 5 then",
-        d: "if(i == 5)",
-        correct: "d",
-    },
-
-    {
-        numb: 8,
-        question: "How does a WHILE loop start?",
-        a: "while (i <= 10;i++)",
-        b: "while (i <= 10)",
-        c: "while ic= 1 to 10",
-        d: "while (i <== 10,i+++)",
-        correct: "b",
-    },
-
-    {
-        numb: 9,
-        question: "How can you add a comment in a JavaScript?",
-        a: "///This is a comment",
-        b: "<!--This is a comment -->",
-        c: "//This is a comment",
-        d: "<-- This is a comment -->",
-        correct: "c",
-    },
-
-    {
-        numb: 10,
-        question: "What is the correct way to write a JavaScript array?",
-        a: "var color = ['red', 'green', 'blue']",
-        b: "var color = 1=('red'), 2=('green'), 3=('blue')",
-        c: "var color = (1:'red', 'green', 'blue')",
-        d: "var color = 'red', 'green', 'blue'",
-        correct: "a",
-    },
-]
-//Quiz data variables
-const quiz = document.getElementById('quiz');
-const answerEls = document.querySelectorAll('.answer');
-const questionEl = document.getElementById('question');
-const aText = document.getElementById('a-text');
-const bText = document.getElementById('b-text');
-const cText = document.getElementById('c-text');
-const dText = document.getElementById('d-text');
-const submitBtn = document.getElementById('submit');
-const nextBtn = document.querySelector("#next");
-
-
-let currentQuiz = 0
-let score = ""
-loadQuiz()
-
-  function loadQuiz() {
-    deselectAnswers()
-
-    const currentQuizData = quizData[currentQuiz]
-
-    questionEl.innerText = currentQuizData.question
-    aText.innerText= currentQuizData.a
-    bText.innerText= currentQuizData.b
-    cText.innerText= currentQuizData.c
-    dText.innerText= currentQuizData.d
-}
-
-function deselectAnswers(){
-    answerEls.forEach(answerEls => answerEls.checked = false)
-}
-
-function getSelected() {
-    let answer
-    answerEls.forEach(answerEls => {
-        if(answerEls.checked){
-          answer = answerEls.id  
-        }
-        
-    })
-    return answer
-}
-
-submitBtn.addEventListener('click', () => {
-   
-    const answer = getSelected()
-    if(answer) {
-        if(answer === quizData.length) {
-            loadQuiz()
-        } else{
-            quiz.innerHTML = `Hello  Your result is ${score}/${quizData.length} " out of 10.`
-        }
+//if next button gets clicked
+next_btn.onclick = ()=> {
+    if(que_count < questions.length - 1){
+        que_count++;
+        que_numb++;
+        showQuestions(que_count);
+        queCounter(que_numb);
+    }else {
+        console.log("Questions completed");
     }
 
 
-});
+}
+
+//Getting questions and options from array
+function showQuestions(index){
+    const que_text = document.querySelector(".que-text");
+    const options_list = document.querySelector(".option-list");
+    let que_tag = '<span>'+questions[index].numb + questions[index].question + '</span>';
+    let option_tag = '<div class= "option">'+ questions[index].options[0] +'<span></span></div>'
+                     + '<div class= "option">'+ questions[index].options[1] +'<span></span></div>'
+                     + '<div class= "option">'+ questions[index].options[2] +'<span></span></div>'
+                     + '<div class= "option">'+ questions[index].options[3] +'<span></span></div>';
+    options_list.innerHTML = option_tag;
+    const option = options_list.querySelectorAll(".option");
+    for (let i = 0; i < option.length; i++) {
+        option[i].setAttribute("onclick", "optionSelected(this)");
+    }
+}
+
+function optionSelected(answer){
+    let userAns = answer.textContent;
+    let correctAns = questions[que_count].answer;
+    if(userAns == correctAns){
+        answer.classList.add("correct")
+        console.log ("Answer is Correct");
+    }else{
+        answer.classList.add("incorrect")
+        console.log("Answer is Wrong"); 
+    }
+}
+
+
+
+
+
+
+function queCounter(index){
+    const bottom_ques_counter = quizBox.querySelector(".total-que");
+    let totalQuesCountTag = '<span><p>' + que_count + '</p>of<p>' + questions.length + '</p>Questions</span>';
+    bottom_ques_counter.innerHTML = totalQuesCountTag;
+}

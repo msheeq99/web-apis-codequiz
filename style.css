@@ -101,6 +101,7 @@ body {
     margin: 0 5px;
     height: 40px;
     width: 100px;
+    outline: none;
     border: 1px solid (--purple);
     border-radius: 5px;
     color: var(--white);
@@ -240,6 +241,19 @@ section .option-list .option:hover {
     border-color: #a42834;
 }
 
+.option-list .option.correct{
+    color: #23903c;
+    background: #d4edda;
+    border-color: #c3e6cb;
+}
+
+
+.option-list .option.incorrect{
+    color: #721c24;
+    background: #f8d7da;
+    border-color: #f5c6cb;
+}
+
 .quiz-box footer {
     height: 60px;
     width: 100%;
@@ -264,7 +278,7 @@ footer .total-que span p:first-child {
     padding-left: 0px;
 }
 
-footer .next-btn {
+footer #next-btn {
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
